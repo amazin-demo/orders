@@ -2,6 +2,7 @@ package amazin.orders.web;
 
 import java.util.Optional;
 
+import amazin.orders.client.payment.PaymentsClient;
 import amazin.orders.domain.entity.Order;
 import amazin.orders.domain.repository.OrderRepository;
 import org.junit.Before;
@@ -26,9 +27,12 @@ public class OrdersWebServiceTest {
     @Mock
     private OrderRepository orderRepositoryMock;
 
+    @Mock
+    private PaymentsClient paymentsClientMock;
+
     @Before
     public void initMockMvc() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new OrdersWebService(orderRepositoryMock))
+        mockMvc = MockMvcBuilders.standaloneSetup(new OrdersWebService(orderRepositoryMock, paymentsClientMock))
                 .build();
     }
 
