@@ -32,7 +32,7 @@ public class DefaultPaymentsClientTest {
                 ).build())
                 .willRespondWith()
                 .status(200)
-                .matchHeader("Content-Type", "application/json")
+                .matchHeader("Content-Type", "application/json;charset=UTF-8")
                 .body(newJsonBody(o ->
                         o.stringValue("accountId", "12345")
                                 .numberValue("amount", 100)
